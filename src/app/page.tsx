@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Hero from "@/components/Hero";
+import SkillsMarquee from "@/components/SkillsMarquee";
 import { GitHubIcon, LinkedInIcon, MailIcon, ArrowIcon, DocIcon } from "@/components/icons";
-import { profile, projects, experience, skills, stats, type Project } from "@/lib/data";
+import { profile, projects, experience, stats, type Project } from "@/lib/data";
 
 /* ── shared bits ───────────────────────────────────────────────────── */
 function SectionHeader({ label, title }: { label: string; title: string }) {
@@ -138,20 +139,7 @@ export default function Home() {
         <Reveal>
           <SectionHeader label="Skills" title="What I work with" />
         </Reveal>
-        <div className="space-y-5">
-          {skills.map((g, i) => (
-            <Reveal key={g.label} delay={i * 40}>
-              <div className="grid gap-2 sm:grid-cols-[160px_1fr] sm:items-start">
-                <p className="font-mono text-xs text-faint">{g.label}</p>
-                <div className="flex flex-wrap gap-2">
-                  {g.items.map((s) => (
-                    <TechTag key={s}>{s}</TechTag>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <SkillsMarquee />
       </section>
 
       {/* Contact / footer */}
@@ -202,7 +190,7 @@ function FeaturedProject({ p }: { p: Project }) {
             alt={p.title}
             fill
             sizes="(min-width: 768px) 45vw, 90vw"
-            className="object-cover object-center transition duration-500 group-hover:scale-[1.03]"
+            className="kenburns object-cover object-center"
           />
         </a>
       )}
