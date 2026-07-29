@@ -11,6 +11,12 @@ export const profile = {
   resume: "/Abhishek-Mishra-Resume.pdf",
 };
 
+export const stats: { value: string; label: string }[] = [
+  { value: "3+", label: "Years in production" },
+  { value: "2", label: "Live products" },
+  { value: "10+", label: "Projects shipped" },
+];
+
 export type Project = {
   title: string;
   tagline: string;

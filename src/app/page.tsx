@@ -2,11 +2,16 @@ import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Hero from "@/components/Hero";
 import { GitHubIcon, LinkedInIcon, MailIcon, ArrowIcon, DocIcon } from "@/components/icons";
-import { profile, projects, experience, skills, type Project } from "@/lib/data";
+import { profile, projects, experience, skills, stats, type Project } from "@/lib/data";
 
 /* ── shared bits ───────────────────────────────────────────────────── */
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <p className="mb-8 font-mono text-xs uppercase tracking-[0.2em] text-accent">{children}</p>;
+function SectionHeader({ label, title }: { label: string; title: string }) {
+  return (
+    <div className="mb-10">
+      <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">{label}</p>
+      <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">{title}</h2>
+    </div>
+  );
 }
 
 function TechTag({ children }: { children: React.ReactNode }) {
@@ -59,13 +64,29 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* Hero (animated + 3D) */}
+      {/* Hero */}
       <Hero />
+
+      {/* Stats */}
+      <section className="border-t border-border py-12">
+        <Reveal>
+          <div className="grid grid-cols-3 gap-4 text-center sm:gap-8">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <div className="text-3xl font-semibold tracking-tight sm:text-4xl">{s.value}</div>
+                <div className="mt-1.5 font-mono text-[10px] uppercase tracking-wider text-faint sm:text-xs">
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
 
       {/* Work */}
       <section id="work" className="scroll-mt-16 border-t border-border py-20">
         <Reveal>
-          <SectionLabel>Selected work</SectionLabel>
+          <SectionHeader label="Selected work" title="A few things I've shipped" />
         </Reveal>
 
         <div className="space-y-16">
@@ -88,7 +109,7 @@ export default function Home() {
       {/* Experience */}
       <section id="experience" className="scroll-mt-16 border-t border-border py-20">
         <Reveal>
-          <SectionLabel>Experience</SectionLabel>
+          <SectionHeader label="Experience" title="Where I've worked" />
         </Reveal>
         <div className="space-y-10">
           {experience.map((e, i) => (
@@ -115,7 +136,7 @@ export default function Home() {
       {/* Skills */}
       <section id="skills" className="scroll-mt-16 border-t border-border py-20">
         <Reveal>
-          <SectionLabel>Skills</SectionLabel>
+          <SectionHeader label="Skills" title="What I work with" />
         </Reveal>
         <div className="space-y-5">
           {skills.map((g, i) => (
@@ -136,8 +157,8 @@ export default function Home() {
       {/* Contact / footer */}
       <footer className="border-t border-border py-20">
         <Reveal>
-          <SectionLabel>Contact</SectionLabel>
-          <h2 className="text-2xl font-semibold tracking-tight">Let&apos;s build something.</h2>
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">Contact</p>
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Let&apos;s build something.</h2>
           <p className="mt-3 max-w-md leading-relaxed text-muted">
             I&apos;m open to frontend, full-stack, and AI product roles. If you&apos;re building
             something ambitious, reach out.
@@ -174,7 +195,7 @@ function FeaturedProject({ p }: { p: Project }) {
           href={p.live ?? p.code}
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative block aspect-[16/10] overflow-hidden rounded-xl border border-border bg-surface"
+          className="group relative block aspect-[16/10] overflow-hidden rounded-xl border border-border bg-surface transition duration-300 hover:border-accent/40 hover:shadow-[0_10px_50px_-10px] hover:shadow-accent/25"
         >
           <Image
             src={p.image}
