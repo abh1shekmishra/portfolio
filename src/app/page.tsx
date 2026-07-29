@@ -41,10 +41,10 @@ export default function Home() {
   const rest = projects.filter((p) => !p.featured);
 
   return (
-    <main className="mx-auto max-w-3xl px-6">
-      {/* Nav */}
-      <header className="sticky top-0 z-20 -mx-6 border-b border-border/60 bg-bg/70 px-6 backdrop-blur-md">
-        <nav className="mx-auto flex h-14 max-w-3xl items-center justify-between">
+    <>
+      {/* Nav — full-width sticky bar */}
+      <header className="sticky top-0 z-30 border-b border-border/60 bg-bg/70 backdrop-blur-md">
+        <nav className="mx-auto flex h-14 max-w-3xl items-center justify-between px-6">
           <a href="#top" className="font-mono text-sm font-semibold tracking-tight text-fg">
             AM<span className="text-accent">.</span>
           </a>
@@ -64,6 +64,7 @@ export default function Home() {
         </nav>
       </header>
 
+      <main className="mx-auto max-w-3xl px-6">
       {/* Hero */}
       <Hero />
 
@@ -187,7 +188,8 @@ export default function Home() {
           </p>
         </Reveal>
       </footer>
-    </main>
+      </main>
+    </>
   );
 }
 
