@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Hero from "@/components/Hero";
-import SkillsMarquee from "@/components/SkillsMarquee";
 import { GitHubIcon, LinkedInIcon, MailIcon, ArrowIcon, DocIcon } from "@/components/icons";
-import { profile, projects, experience, stats, type Project } from "@/lib/data";
+import { profile, projects, experience, skills, stats, type Project } from "@/lib/data";
 
 /* ── shared bits ───────────────────────────────────────────────────── */
 function SectionHeader({ label, title }: { label: string; title: string }) {
@@ -17,7 +16,7 @@ function SectionHeader({ label, title }: { label: string; title: string }) {
 
 function TechTag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded-md border border-border bg-surface px-2 py-0.5 font-mono text-[11px] text-muted">
+    <span className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[11px] text-muted backdrop-blur-sm">
       {children}
     </span>
   );
@@ -139,7 +138,25 @@ export default function Home() {
         <Reveal>
           <SectionHeader label="Skills" title="What I work with" />
         </Reveal>
-        <SkillsMarquee />
+        <div className="space-y-5">
+          {skills.map((g, i) => (
+            <Reveal key={g.label} delay={i * 40}>
+              <div className="grid gap-2 sm:grid-cols-[150px_1fr] sm:items-start">
+                <p className="pt-1 font-mono text-xs uppercase tracking-wider text-faint">{g.label}</p>
+                <div className="flex flex-wrap gap-2">
+                  {g.items.map((s) => (
+                    <span
+                      key={s}
+                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-xs text-muted backdrop-blur-sm"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       {/* Contact / footer */}
@@ -241,7 +258,7 @@ function SmallProject({ p }: { p: Project }) {
     </>
   );
   const cls =
-    "group flex h-full flex-col rounded-xl border border-border bg-surface p-5 transition duration-300 hover:-translate-y-0.5 hover:border-accent/50 hover:bg-surface-2 hover:shadow-lg hover:shadow-accent/10";
+    "group flex h-full flex-col rounded-xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-accent/10";
   return clickable ? (
     <a href={p.live ?? p.code} target="_blank" rel="noopener noreferrer" className={cls}>
       {inner}
