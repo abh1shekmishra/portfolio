@@ -38,6 +38,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }}
         />
         {children}
+        <div className="grain" aria-hidden />
       </body>
     </html>
   );

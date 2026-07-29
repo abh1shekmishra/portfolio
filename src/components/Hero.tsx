@@ -1,57 +1,48 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import { useSyncExternalStore } from "react";
 import { profile } from "@/lib/data";
-import Reveal from "@/components/Reveal";
-import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
-
-// The 3D canvas is client-only and lazy — never blocks first paint.
-const HeroScene = dynamic(() => import("@/components/HeroScene"), { ssr: false });
-
-const MQ = "(min-width: 768px)";
-function subscribe(cb: () => void) {
-  const mq = window.matchMedia(MQ);
-  mq.addEventListener("change", cb);
-  return () => mq.removeEventListener("change", cb);
-}
+import { GitHubIcon, LinkedInIcon, MailIcon, DocIcon } from "@/components/icons";
 
 export default function Hero() {
-  // Only mount the 3D scene on wider screens (keeps phones light and fast).
-  const show3d = useSyncExternalStore(
-    subscribe,
-    () => window.matchMedia(MQ).matches,
-    () => false,
-  );
-
   return (
-    <section id="top" className="hero-glow relative pt-14 pb-24 md:pt-20">
-      <div className="grid items-center gap-6 md:grid-cols-[1.05fr_0.95fr] md:gap-10">
-        <div>
-          <Reveal>
-            <p className="mb-5 font-mono text-sm text-muted">
-              {profile.role} · {profile.location}
-            </p>
-            <h1 className="text-balance text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
-              {profile.tagline}
-            </h1>
-            <p className="mt-6 max-w-xl text-pretty leading-relaxed text-muted">{profile.pitch}</p>
-            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
-              <a href={profile.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-accent">
-                <GitHubIcon /> GitHub
-              </a>
-              <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-accent">
-                <LinkedInIcon /> LinkedIn
-              </a>
-              <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-accent">
-                <MailIcon /> {profile.email}
-              </a>
-            </div>
-          </Reveal>
-        </div>
+    <section
+      id="top"
+      className="relative left-1/2 -mt-14 flex min-h-[90vh] w-screen -translate-x-1/2 items-center justify-center overflow-hidden pt-14 text-center"
+    >
+      {/* Grainy aurora, full-bleed. */}
+      <div className="aurora">
+        <div className="blob blob-1" />
+        <div className="blob blob-2" />
+        <div className="blob blob-3" />
+      </div>
 
-        <div className="relative hidden h-[340px] w-full md:block lg:h-[400px]">
-          {show3d && <HeroScene />}
+      <div className="hero-in relative z-10 mx-auto max-w-2xl px-6">
+        <p className="mb-6 font-mono text-xs uppercase tracking-[0.28em] text-muted sm:text-sm">
+          {profile.role} · {profile.location}
+        </p>
+        <h1 className="text-balance text-4xl font-semibold leading-[1.06] tracking-tight sm:text-5xl md:text-6xl">
+          {profile.tagline}
+        </h1>
+        <p className="mx-auto mt-7 max-w-xl text-pretty leading-relaxed text-muted">
+          3+ years shipping production software end to end, from real-time 3D and XR in Unreal
+          Engine and C++ to modern web products in React, Next.js and TypeScript with AI.
+        </p>
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
+          <a
+            href={profile.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition hover:opacity-90"
+          >
+            <DocIcon /> Résumé
+          </a>
+          <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg">
+            <MailIcon /> Email
+          </a>
+          <a href={profile.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg">
+            <GitHubIcon /> GitHub
+          </a>
+          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg">
+            <LinkedInIcon /> LinkedIn
+          </a>
         </div>
       </div>
     </section>
