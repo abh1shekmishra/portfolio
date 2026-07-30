@@ -90,7 +90,7 @@ export const experience = [
   {
     company: "Trezi (SmartVizX)",
     role: "Senior Software Engineer",
-    period: "Jun 2023 — Present",
+    period: "Jun 2023 - Present",
     location: "Noida",
     points: [
       "Built immersive AR/VR and desktop visualization tools in Unreal Engine 5 and C++ for architecture and design.",
@@ -101,7 +101,7 @@ export const experience = [
   {
     company: "Amazon",
     role: "Customer Service Associate → Training Subject Matter Expert",
-    period: "Oct 2019 — May 2023",
+    period: "Oct 2019 - May 2023",
     location: "Noida",
     points: [
       "Promoted from Customer Service Associate to Training Subject Matter Expert.",

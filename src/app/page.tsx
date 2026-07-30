@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
+import ScrollFillText from "@/components/ScrollFillText";
 import { GitHubIcon, LinkedInIcon, MailIcon, ArrowIcon, DocIcon } from "@/components/icons";
 import { profile, projects, experience, skills, type Project } from "@/lib/data";
 
@@ -67,14 +68,14 @@ export default function Home() {
               <h2 className="text-5xl font-bold tracking-tight sm:text-6xl">Hey!</h2>
               <div className="space-y-8 text-lg leading-relaxed text-muted">
                 <p>
-                  I&apos;m Abhishek — a senior software engineer based in Noida, India. For 3+ years
+                  I&apos;m Abhishek, a senior software engineer based in Noida, India. For 3+ years
                   I&apos;ve shipped production software end to end, moving comfortably between
                   real-time 3D and the modern web.
                 </p>
                 <p>
                   At <span className="font-semibold text-ink">Trezi</span> I build immersive AR/VR
                   and desktop tools in Unreal Engine and C++. On my own time I build AI products and
-                  web apps in React, Next.js and TypeScript — always tested, always shipped.
+                  web apps in React, Next.js and TypeScript. Always tested, always shipped.
                 </p>
                 <a
                   href="#contact"
@@ -88,14 +89,12 @@ export default function Home() {
           </Reveal>
         </section>
 
-        {/* Statement */}
-        <section className="border-t border-border py-24 sm:py-28">
-          <Reveal>
-            <p className="max-w-4xl text-3xl font-semibold leading-[1.25] tracking-tight sm:text-4xl md:text-[2.75rem]">
-              <span className="text-faint">From idea to launch.</span> Clean, scalable products —
-              built to move fast, stay simple, and hold up in the real world.
-            </p>
-          </Reveal>
+        {/* Statement — fills from faint to ink on scroll */}
+        <section className="border-t border-border py-20 sm:py-24">
+          <ScrollFillText
+            text="From idea to launch. Clean, scalable products, built to move fast, stay simple, and hold up in the real world."
+            className="max-w-4xl text-3xl font-semibold leading-[1.25] tracking-tight sm:text-4xl md:text-[2.75rem]"
+          />
         </section>
 
         {/* What I do */}

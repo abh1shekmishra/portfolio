@@ -1,12 +1,12 @@
-# Portfolio — Abhishek Mishra
+# Portfolio · Abhishek Mishra
 
 [![CI](https://github.com/abh1shekmishra/portfolio/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/abh1shekmishra/portfolio/actions/workflows/ci.yml)
 ![Next.js 16](https://img.shields.io/badge/Next.js-16-black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6)
 
-My personal site — software engineer building web and AI products, and real-time 3D.
+My personal site. Software engineer building web and AI products, and real-time 3D.
 
-Clean, single-page, dark product-engineer aesthetic. Content lives in one place
+Clean, single-page, light editorial aesthetic. Content lives in one place
 ([`src/lib/data.ts`](src/lib/data.ts)); the page composes it into hero, selected
 work, experience, skills and contact, with a lightweight scroll-reveal that
 degrades to fully visible without JS.

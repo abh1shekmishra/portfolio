@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
+import Cursor from "@/components/Cursor";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -31,6 +32,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }}
         />
         {children}
+        <Cursor />
         <div className="grain" aria-hidden />
       </body>
     </html>

@@ -28,7 +28,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Paper grain — a faint dark noise multiplied over the warm paper. */
+/* Paper grain: a faint dark noise multiplied over the warm paper. */
 .grain {
   position: fixed;
   inset: 0;
@@ -39,7 +39,7 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Keyboard focus — a single deliberate ink ring. */
+/* Keyboard focus: a single deliberate ink ring. */
 :focus-visible {
   outline: 2px solid var(--color-ink);
   outline-offset: 3px;
@@ -51,7 +51,39 @@ body {
   color: var(--color-cream);
 }
 
-/* Display type — heavy grotesque, tight tracking, near-solid leading. */
+/* Blend cursor: a difference-blended dot that inverts over dark surfaces.
+   Only active on fine-pointer devices (the `.has-cursor` class is toggled by
+   the Cursor client), where it replaces the native pointer. */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 1;
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
+  will-change: transform;
+}
+.cursor-dot.cursor-lg {
+  width: 48px;
+  height: 48px;
+}
+.cursor-dot.cursor-hidden {
+  opacity: 0;
+}
+.has-cursor,
+.has-cursor a,
+.has-cursor button,
+.has-cursor * {
+  cursor: none !important;
+}
+
+/* Display type: heavy grotesque, tight tracking, near-solid leading. */
 .display {
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -59,7 +91,7 @@ body {
   text-transform: uppercase;
 }
 
-/* Scroll reveal — content rises + fades the first time it scrolls into view.
+/* Scroll reveal: content rises + fades the first time it scrolls into view.
    Gated behind `.js` so no-JS users see everything; disabled for reduced motion. */
 .js .reveal {
   opacity: 0;
@@ -80,7 +112,7 @@ body {
   }
 }
 
-/* Entrance — a staggered rise on load (not scroll-triggered). */
+/* Entrance: a staggered rise on load (not scroll-triggered). */
 @keyframes riseIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: none; }

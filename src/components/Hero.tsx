@@ -1,7 +1,7 @@
 import { profile } from "@/lib/data";
 import { ArrowIcon, DocIcon } from "@/components/icons";
 
-/* A flat four-point star — a brutalist mark, not a chrome trinket. */
+/* A flat four-point star: a brutalist mark, not a chrome trinket. */
 function Star({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 100 100" className={className} fill="currentColor" aria-hidden>
@@ -27,13 +27,13 @@ export default function Hero() {
         </p>
 
         <h1 className="display mt-6 text-center text-ink text-[clamp(3.25rem,15vw,13rem)]">
-          Software
+          Web, AI
           <br />
-          Engineer
+          &amp; 3D.
         </h1>
 
         <p className="mx-auto mt-8 max-w-xl text-balance text-center text-base leading-relaxed text-muted sm:text-lg">
-          I build web &amp; AI products, and real-time 3D — from Unreal Engine and C++ to
+          I build web &amp; AI products, and real-time 3D, from Unreal Engine and C++ to
           React, Next.js and TypeScript.
         </p>
 
