@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
+/* ── Light editorial theme ──────────────────────────────────────────────
+   Warm off-white + near-black, one grotesque family (Archivo), no colour
+   accent. Colour enters only through project imagery. */
 @theme {
-  --color-bg: #08080a;
-  --color-surface: #0f0f13;
-  --color-surface-2: #16161b;
-  --color-border: #21212a;
-  --color-fg: #ededf0;
-  --color-muted: #9a9aa4;
-  --color-faint: #6a6a74;
-  --color-accent: #2dd4bf;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: #faf7f3;        /* warm off-white */
+  --color-surface: #ffffff;
+  --color-ink: #111111;       /* near-black */
+  --color-muted: #5c5b5a;     /* secondary text */
+  --color-faint: #8a8886;     /* meta / labels */
+  --color-border: #e4e0da;    /* hairline on light */
+  --color-dark: #111111;      /* dark sections + footer */
+  --color-cream: #faf7f3;     /* text/ink on dark */
+  --font-sans: var(--font-archivo);
 }
 
 html {
@@ -19,139 +21,91 @@ html {
 
 body {
   background: var(--color-bg);
-  color: var(--color-fg);
+  color: var(--color-ink);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
-/* ── Grainy aurora hero ─────────────────────────────────────────────
-   A dark, cinematic gradient made of slow, blurred colour blobs, with a
-   film-grain overlay on top. Pure CSS/SVG, so it renders everywhere. */
-.aurora {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-.aurora::after {
-  /* fade the aurora into the page background at the bottom */
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 55%, var(--color-bg) 100%);
-}
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.55;
-  will-change: transform;
-}
-.blob-1 {
-  width: 46vw;
-  height: 46vw;
-  left: 30%;
-  top: -10%;
-  background: #14b8a6;
-  animation: drift1 26s ease-in-out infinite alternate;
-}
-.blob-2 {
-  width: 42vw;
-  height: 42vw;
-  right: -8%;
-  top: 5%;
-  background: #6366f1;
-  animation: drift2 30s ease-in-out infinite alternate;
-}
-.blob-3 {
-  width: 40vw;
-  height: 40vw;
-  left: 5%;
-  top: 20%;
-  background: #8b5cf6;
-  opacity: 0.4;
-  animation: drift3 34s ease-in-out infinite alternate;
-}
-@keyframes drift1 {
-  from { transform: translate(0, 0) scale(1); }
-  to { transform: translate(-16%, 14%) scale(1.18); }
-}
-@keyframes drift2 {
-  from { transform: translate(0, 0) scale(1); }
-  to { transform: translate(-12%, 20%) scale(0.9); }
-}
-@keyframes drift3 {
-  from { transform: translate(0, 0) scale(1.05); }
-  to { transform: translate(18%, -10%) scale(1.25); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .blob { animation: none !important; }
-}
-
-/* Hero entrance — a CSS load animation (not scroll-triggered), so the
-   above-the-fold hero is always visible and never depends on an observer. */
-@keyframes heroIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: none; }
-}
-.hero-in {
-  animation: heroIn 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-in { animation: none; }
-}
-
-/* Film grain — a tiling SVG noise, laid over the whole page, very subtle. */
+/* Paper grain — a faint dark noise multiplied over the warm paper. */
 .grain {
   position: fixed;
   inset: 0;
-  z-index: 40;
+  z-index: 60;
   pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: overlay;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* (Scroll reveals removed for robustness — content is always visible. Motion
-   comes from the aurora, ambient glow, ken-burns images, and hover states.) */
-
-/* Page-wide ambient colour — carries the hero's aurora palette down the whole
-   page as faint fixed glows, so no section reads as flat black. */
-.page-ambient {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(45% 35% at 12% 22%, color-mix(in srgb, #6366f1 13%, transparent), transparent 70%),
-    radial-gradient(42% 32% at 88% 48%, color-mix(in srgb, #14b8a6 12%, transparent), transparent 70%),
-    radial-gradient(46% 34% at 30% 78%, color-mix(in srgb, #8b5cf6 11%, transparent), transparent 72%),
-    radial-gradient(40% 30% at 78% 96%, color-mix(in srgb, #6366f1 10%, transparent), transparent 72%);
-}
-
-/* Slow continuous zoom for the featured project images */
-@keyframes kenburns {
-  from { transform: scale(1); }
-  to { transform: scale(1.07); }
-}
-.kenburns {
-  animation: kenburns 16s ease-in-out infinite alternate;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track,
-  .kenburns {
-    animation: none;
-  }
+/* Keyboard focus — a single deliberate ink ring. */
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--color-accent) 28%, transparent);
+  background: var(--color-ink);
+  color: var(--color-cream);
 }
 
-a {
-  transition: color 0.15s ease;
+/* Display type — heavy grotesque, tight tracking, near-solid leading. */
+.display {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+/* Scroll reveal — content rises + fades the first time it scrolls into view.
+   Gated behind `.js` so no-JS users see everything; disabled for reduced motion. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Entrance — a staggered rise on load (not scroll-triggered). */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+.cascade > * {
+  animation: riseIn 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.cascade > *:nth-child(1) { animation-delay: 0.04s; }
+.cascade > *:nth-child(2) { animation-delay: 0.12s; }
+.cascade > *:nth-child(3) { animation-delay: 0.22s; }
+.cascade > *:nth-child(4) { animation-delay: 0.32s; }
+.cascade > *:nth-child(5) { animation-delay: 0.42s; }
+
+/* Slow drift for the hero's decorative marks. */
+@keyframes floaty {
+  from { transform: translateY(0) rotate(0deg); }
+  to { transform: translateY(-14px) rotate(8deg); }
+}
+.floaty { animation: floaty 6s ease-in-out infinite alternate; }
+.floaty-slow { animation: floaty 9s ease-in-out infinite alternate; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cascade > *,
+  .floaty,
+  .floaty-slow {
+    animation: none;
+  }
 }

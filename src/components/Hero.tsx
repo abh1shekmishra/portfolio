@@ -1,49 +1,66 @@
 import { profile } from "@/lib/data";
-import { GitHubIcon, LinkedInIcon, MailIcon, DocIcon } from "@/components/icons";
+import { ArrowIcon, DocIcon } from "@/components/icons";
+
+/* A flat four-point star — a brutalist mark, not a chrome trinket. */
+function Star({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="currentColor" aria-hidden>
+      <path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0 Z" />
+    </svg>
+  );
+}
 
 export default function Hero() {
+  const year = new Date().getFullYear();
   return (
     <section
       id="top"
-      className="relative left-1/2 -mt-14 flex min-h-[90vh] w-screen -translate-x-1/2 items-center justify-center overflow-hidden pt-14 text-center"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-28 pb-10"
     >
-      {/* Grainy aurora, full-bleed. */}
-      <div className="aurora">
-        <div className="blob blob-1" />
-        <div className="blob blob-2" />
-        <div className="blob blob-3" />
-      </div>
+      {/* Decorative marks */}
+      <Star className="floaty pointer-events-none absolute left-[6%] top-[26%] h-10 w-10 text-ink sm:h-14 sm:w-14" />
+      <Star className="floaty-slow pointer-events-none absolute right-[7%] top-[44%] h-8 w-8 text-ink sm:h-11 sm:w-11" />
 
-      <div className="hero-in relative z-10 mx-auto max-w-2xl px-6">
-        <p className="mb-6 font-mono text-xs uppercase tracking-[0.28em] text-muted sm:text-sm">
+      <div className="cascade relative z-10">
+        <p className="text-center font-medium uppercase tracking-[0.28em] text-faint text-[11px] sm:text-xs">
           {profile.role} · {profile.location}
         </p>
-        <h1 className="text-balance text-4xl font-semibold leading-[1.06] tracking-tight sm:text-5xl md:text-6xl">
-          {profile.tagline}
+
+        <h1 className="display mt-6 text-center text-ink text-[clamp(3.25rem,15vw,13rem)]">
+          Software
+          <br />
+          Engineer
         </h1>
-        <p className="mx-auto mt-7 max-w-xl text-pretty leading-relaxed text-muted">
-          3+ years shipping production software end to end, from real-time 3D and XR in Unreal
-          Engine and C++ to modern web products in React, Next.js and TypeScript with AI.
+
+        <p className="mx-auto mt-8 max-w-xl text-balance text-center text-base leading-relaxed text-muted sm:text-lg">
+          I build web &amp; AI products, and real-time 3D — from Unreal Engine and C++ to
+          React, Next.js and TypeScript.
         </p>
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <a
             href={profile.resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-cream transition-opacity hover:opacity-85"
           >
             <DocIcon /> Résumé
           </a>
-          <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg">
-            <MailIcon /> Email
-          </a>
-          <a href={profile.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg">
-            <GitHubIcon /> GitHub
-          </a>
-          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg">
-            <LinkedInIcon /> LinkedIn
+          <a
+            href="#work"
+            className="inline-flex items-center gap-2 rounded-full border border-ink/25 px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-cream"
+          >
+            View work <ArrowIcon />
           </a>
         </div>
+      </div>
+
+      {/* Corner meta, editorial style */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-6 z-10 flex items-end justify-between px-1 font-medium text-faint">
+        <span className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">©{year}</span>
+        <span className="text-[10px] uppercase tracking-[0.2em] sm:text-xs">
+          / Creating since 2022
+        </span>
       </div>
     </section>
   );
