@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Cursor from "@/components/Cursor";
 import "./globals.css";
 
@@ -34,6 +35,7 @@ export default function RootLayout({
         {children}
         <Cursor />
         <div className="grain" aria-hidden />
+        <Analytics />
       </body>
     </html>
   );
