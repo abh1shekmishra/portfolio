@@ -5,7 +5,7 @@ export const profile = {
   pitch:
     "Software engineer with 3+ years shipping production software end to end, from real-time 3D and XR in Unreal Engine and C++ to modern web products in React, Next.js and TypeScript with AI built on the Claude and Google APIs.",
   location: "Noida, India",
-  email: "abhishek.boss31@gmail.com",
+  email: "abhshkmishra@gmail.com",
   github: "https://github.com/abh1shekmishra",
   linkedin: "https://linkedin.com/in/abh1shekmishra",
   resume: "/Abhishek-Mishra-Resume.pdf",
