@@ -26,15 +26,15 @@ export default function Hero() {
           {profile.role} · {profile.location}
         </p>
 
-        <h1 className="display mt-6 text-center text-ink text-[clamp(3.25rem,15vw,13rem)]">
-          Web, AI
+        <h1 className="display mt-6 text-center text-ink text-[clamp(2.75rem,10.5vw,10rem)]">
+          Unreal, Unity
           <br />
-          &amp; 3D.
+          &amp; XR.
         </h1>
 
         <p className="mx-auto mt-8 max-w-xl text-balance text-center text-base leading-relaxed text-muted sm:text-lg">
-          I build web &amp; AI products, and real-time 3D, from Unreal Engine and C++ to
-          React, Next.js and TypeScript.
+          I build real-time 3D and XR in Unreal Engine and Unity, from C++ and Blueprints to
+          standalone VR, plus web and AI products on the side.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">

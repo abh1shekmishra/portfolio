@@ -6,10 +6,10 @@ import { GitHubIcon, LinkedInIcon, MailIcon, ArrowIcon, DocIcon } from "@/compon
 import { profile, projects, experience, skills, type Project } from "@/lib/data";
 
 const services = [
-  { title: "Real-time 3D / XR", tags: ["Unreal Engine 5", "C++", "WebXR", "AR / VR"] },
-  { title: "Frontend Development", tags: ["React", "Next.js", "TypeScript", "Tailwind"] },
-  { title: "AI Product Engineering", tags: ["Claude API", "Prompt design", "Rapid prototyping"] },
-  { title: "Full-stack & Tooling", tags: ["Node.js", "Flask", "CI / CD", "Testing"] },
+  { title: "Unreal Engine", tags: ["C++", "Blueprints", "Multiplayer", "VR / AR", "Plugins"] },
+  { title: "Unity & XR", tags: ["Unity (C#)", "Standalone VR", "OpenXR", "XR Interaction Toolkit"] },
+  { title: "Hardware & IoT", tags: ["ESP32", "Sensors to Unity over WiFi"] },
+  { title: "Web & AI", tags: ["React", "Next.js", "Three.js", "Claude API"] },
 ];
 
 /* ── shared bits ───────────────────────────────────────────────────── */
@@ -31,8 +31,9 @@ const container = "mx-auto w-full max-w-[1180px] px-6";
 
 /* ── page ──────────────────────────────────────────────────────────── */
 export default function Home() {
-  const featured = projects.filter((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
+  const xr = projects.filter((p) => p.group === "xr");
+  const featured = projects.filter((p) => p.group === "web" && p.featured);
+  const rest = projects.filter((p) => p.group === "web" && !p.featured);
 
   return (
     <>
@@ -68,14 +69,15 @@ export default function Home() {
               <h2 className="text-5xl font-bold tracking-tight sm:text-6xl">Hey!</h2>
               <div className="space-y-8 text-lg leading-relaxed text-muted">
                 <p>
-                  I&apos;m Abhishek, a senior software engineer based in Noida, India. For 3+ years
-                  I&apos;ve shipped production software end to end, moving comfortably between
-                  real-time 3D and the modern web.
+                  I&apos;m Abhishek, a real-time 3D developer based in Noida, India. For 3+ years
+                  I&apos;ve shipped VR, AR and desktop applications in Unreal Engine (C++,
+                  Blueprints, multiplayer) and Unity (C#).
                 </p>
                 <p>
-                  At <span className="font-semibold text-ink">Trezi</span> I build immersive AR/VR
-                  and desktop tools in Unreal Engine and C++. On my own time I build AI products and
-                  web apps in React, Next.js and TypeScript. Always tested, always shipped.
+                  At <span className="font-semibold text-ink">Trezi</span> I build immersive tools
+                  for architecture and design clients. I&apos;ve also delivered freelance Unity work,
+                  from a standalone VR tour to an ESP32 sensor system streaming into Unity. On the
+                  side I build web and AI products in React, Next.js and TypeScript.
                 </p>
                 <a
                   href="#contact"
@@ -127,7 +129,19 @@ export default function Home() {
         <section id="work" className="scroll-mt-24 border-t border-border py-24 sm:py-32">
           <Reveal>
             <Label>Selected work</Label>
-            <h2 className="mb-12 text-5xl font-bold tracking-tight sm:text-6xl">Featured Projects</h2>
+            <h2 className="mb-12 text-5xl font-bold tracking-tight sm:text-6xl">Real-time 3D &amp; XR</h2>
+          </Reveal>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            {xr.map((p, i) => (
+              <Reveal key={p.title} delay={i * 70} className="h-full">
+                <SmallCard p={p} />
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <h2 className="mb-12 mt-24 text-5xl font-bold tracking-tight sm:text-6xl">Web &amp; AI</h2>
           </Reveal>
 
           <div className="grid gap-6 sm:grid-cols-2">
@@ -210,8 +224,8 @@ export default function Home() {
               Let&apos;s build something.
             </h2>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-cream/60">
-              Open to frontend, full-stack, and AI product roles. If you&apos;re building something
-              ambitious, reach out.
+              Open to Unreal Engine, Unity and XR roles, including freelance. If you&apos;re
+              building something ambitious, reach out.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <a

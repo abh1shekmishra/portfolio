@@ -1,9 +1,9 @@
 export const profile = {
   name: "Abhishek Mishra",
-  role: "Senior Software Engineer",
-  tagline: "I build web and AI products, and real-time 3D.",
+  role: "Unreal & Unity Developer",
+  tagline: "I build real-time 3D and XR in Unreal Engine and Unity.",
   pitch:
-    "Software engineer with 3+ years shipping production software end to end, from real-time 3D and XR in Unreal Engine and C++ to modern web products in React, Next.js and TypeScript with AI built on the Claude and Google APIs.",
+    "Real-time 3D developer with 3+ years in Unreal Engine (C++, Blueprints, multiplayer) and Unity (C#), shipping VR, AR and desktop applications for enterprise clients. I also build web and AI products in React, Next.js and TypeScript.",
   location: "Noida, India",
   email: "abhshkmishra@gmail.com",
   github: "https://github.com/abh1shekmishra",
@@ -13,7 +13,7 @@ export const profile = {
 
 export const stats: { value: string; label: string }[] = [
   { value: "3+", label: "Years in production" },
-  { value: "2", label: "Live products" },
+  { value: "6+", label: "Enterprise clients" },
   { value: "10+", label: "Projects shipped" },
 ];
 
@@ -27,10 +27,79 @@ export type Project = {
   code?: string;
   meta?: string; // e.g. client / status
   featured?: boolean;
+  group: "xr" | "web";
 };
 
 export const projects: Project[] = [
+  // ── Real-time 3D / XR ───────────────────────────────────────────────
   {
+    group: "xr",
+    title: "MPVehiclePrototype",
+    tagline: "Unreal multiplayer vehicle prototype",
+    description:
+      "UE 5.4 C++ multiplayer prototype. Host a game or join by code from a custom Slate UI, with sessions created, found and joined through the Online Subsystem. Replicated vehicle pawns and player state, plus an authority-driven, replicated damage component.",
+    tech: ["Unreal Engine 5.4", "C++", "Online Subsystem", "Replication", "Slate"],
+    code: "https://github.com/abh1shekmishra/MPVehiclePrototype",
+    meta: "Personal project",
+  },
+  {
+    group: "xr",
+    title: "Mahindra Citadel",
+    tagline: "Real-time digital twin",
+    description:
+      "A real-time 3D digital twin of a residential project with fully explorable VR and desktop modes and avatar-based, human-scale navigation. Integrated AWS Transcribe and Speech for a real-time in-app voice concierge.",
+    tech: ["Unreal Engine", "C++", "AWS Transcribe", "OpenXR"],
+    meta: "Client: Mahindra Lifespaces",
+  },
+  {
+    group: "xr",
+    title: "Museum of the Bible VR Tour",
+    tagline: "Standalone VR in Unity",
+    description:
+      "A VR tour built in Unity and packaged as an Android APK that runs directly on the headset, with no PC required.",
+    tech: ["Unity", "C#", "Standalone VR", "OpenXR"],
+    meta: "Standalone VR",
+  },
+  {
+    group: "xr",
+    title: "Prism",
+    tagline: "Unreal Engine plugin for AR/VR workflows",
+    description:
+      "A custom UE C++ plugin automating repetitive VR scene setup (batch light building, auto collision/navigation meshes, material switching) to streamline the design-to-deployment pipeline. Cut AR/VR presentation setup time for designers and clients by up to 30%.",
+    tech: ["C++", "Unreal Engine 5", "Blueprints"],
+    meta: "Trezi internal tool",
+  },
+  {
+    group: "xr",
+    title: "ESP32 Motion Sensor System",
+    tagline: "Hardware to Unity over WiFi",
+    description:
+      "An ESP32 sensor system that reads a bat's movement and streams the data to Unity over WiFi. Delivered end to end, from the sensor hardware to the live Unity application.",
+    tech: ["ESP32", "Unity", "C#", "WiFi"],
+    meta: "Freelance",
+  },
+  {
+    group: "xr",
+    title: "Panasonic 3D Globe",
+    tagline: "Cross-platform Unity desktop app",
+    description:
+      "A Windows and macOS desktop app in Unity with an animated 3D globe and a live flight-tracking feed from a Flight Radar API. Delivered end to end as packaged builds for both platforms.",
+    tech: ["Unity", "C#", "Flight Radar API"],
+    meta: "Freelance",
+  },
+  {
+    group: "xr",
+    title: "Eldeco 360° Web Viewer",
+    tagline: "Browser-based property visualization",
+    description:
+      "A web 360° property viewer with VR integration, deployed across multiple properties, bringing real-time 3D walkthroughs to the browser with no install required.",
+    tech: ["Three.js", "WebGL", "WebXR"],
+    meta: "Client work at Trezi",
+  },
+
+  // ── Web & AI ────────────────────────────────────────────────────────
+  {
+    group: "web",
     title: "LeadScraper",
     tagline: "AI lead generation",
     description:
@@ -42,6 +111,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    group: "web",
     title: "Undercover",
     tagline: "Social-deduction PWA",
     description:
@@ -53,36 +123,14 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: "Mahindra Citadel",
-    tagline: "Real-time digital twin",
+    group: "web",
+    title: "Terra",
+    tagline: "Interactive 3D globe for live planetary data",
     description:
-      "A real-time 3D digital twin of a residential project with fully explorable VR and desktop modes and avatar-based, human-scale navigation. Integrated AWS Transcribe and Speech for a real-time in-app voice concierge.",
-    tech: ["Unreal Engine", "C++", "AWS Transcribe", "OpenXR"],
-    meta: "Client: Mahindra Lifespaces",
-  },
-  {
-    title: "Prism",
-    tagline: "Unreal Engine plugin for AR/VR workflows",
-    description:
-      "A custom UE C++ plugin automating repetitive VR scene setup (batch light building, auto collision/navigation meshes, material switching) to streamline the design-to-deployment pipeline. Cut AR/VR presentation setup time for designers and clients by up to 30%.",
-    tech: ["C++", "Unreal Engine 5", "Blueprints"],
-    meta: "Trezi internal tool",
-  },
-  {
-    title: "broll",
-    tagline: "Stock B-roll finder",
-    description:
-      "A local, bring-your-own-key desktop tool that ranks and downloads stock B-roll against a shot list using a free relevance model (tag overlap, resolution and result-position scoring). No paid AI, no cloud. Unit-tested ranking, CI.",
-    tech: ["Python", "Flask", "Vanilla JS", "pytest"],
-    meta: "Private, product in progress",
-  },
-  {
-    title: "Eldeco 360° Web Viewer",
-    tagline: "Browser-based property visualization",
-    description:
-      "A web 360° property viewer with VR integration, deployed across multiple properties, bringing real-time 3D walkthroughs to the browser with no install required.",
-    tech: ["Three.js", "WebGL", "WebXR"],
-    meta: "Client work at Trezi",
+      "An interactive 3D globe unifying six live data feeds, rendering thousands of animated objects at 60fps with GPU instancing and custom GLSL shaders. SGP4 satellite propagation and geospatial mapping.",
+    tech: ["React", "TypeScript", "Three.js", "GLSL"],
+    live: "https://terra-flax-pi.vercel.app",
+    code: "https://github.com/abh1shekmishra/terra",
   },
 ];
 
@@ -93,9 +141,10 @@ export const experience = [
     period: "Jun 2023 - Present",
     location: "Noida",
     points: [
-      "Built immersive AR/VR and desktop visualization tools in Unreal Engine 5 and C++ for architecture and design.",
+      "Build immersive AR, VR and desktop applications in Unreal Engine 5 and C++ for architecture and design, delivered end to end for 6+ enterprise clients.",
+      "Bring architectural source data into Unreal through Datasmith, BIM/Revit import and LiDAR point clouds, and optimize scenes with light building, occlusion strategies and profiling until they hold framerate in VR.",
       "Built browser-based 360° property viewers (Three.js, WebGL, WebXR) alongside the native apps, with cross-device AR (ARKit, ARCore, OpenXR).",
-      "Developed real-time scenes with performance-optimized rendering pipelines, and internal plugins that automated production workflows.",
+      "Build and maintain internal Unreal C++ plugins that automate scene setup, so designers who don't work in the engine can get a scene ready on their own.",
     ],
   },
   {
@@ -111,9 +160,16 @@ export const experience = [
 ];
 
 export const skills: { label: string; items: string[] }[] = [
-  { label: "Languages", items: ["TypeScript", "JavaScript", "C++", "C#", "Python", "HTML/CSS", "SQL"] },
-  { label: "Frontend / Web", items: ["React", "Next.js", "Tailwind CSS", "Zustand", "Framer Motion", "Vite", "PWAs"] },
-  { label: "AI / Product", items: ["Anthropic Claude API", "Prompt engineering", "AI-assisted development", "Rapid prototyping"] },
-  { label: "Real-time 3D / XR", items: ["Unreal Engine 4/5", "Blueprints", "Unity", "Three.js", "WebGL", "WebXR", "AR/VR"] },
-  { label: "Backend / Tooling", items: ["Node.js", "Flask", "Git/GitHub", "GitHub Actions", "Vitest", "pytest", "Vercel"] },
+  {
+    label: "Unreal Engine",
+    items: ["Unreal Engine 4/5", "C++", "Blueprints", "Multiplayer / replication", "Plugins & editor tooling", "Datasmith", "BIM / Revit", "LiDAR"],
+  },
+  {
+    label: "Unity / XR",
+    items: ["Unity (C#)", "Standalone VR", "XR Interaction Toolkit", "OpenXR", "ARKit / ARCore", "WebXR"],
+  },
+  { label: "Hardware / IoT", items: ["ESP32", "Sensor data over WiFi into Unity"] },
+  { label: "Languages", items: ["C++", "C#", "TypeScript", "JavaScript", "Python", "SQL"] },
+  { label: "Web / AI", items: ["React", "Next.js", "Three.js", "WebGL", "Tailwind CSS", "Node.js", "Claude API", "AI-assisted development"] },
+  { label: "Tooling", items: ["Git/GitHub", "GitHub Actions", "Visual Studio", "Vitest", "pytest", "Vercel"] },
 ];

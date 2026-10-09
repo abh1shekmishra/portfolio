@@ -11,12 +11,12 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "Abhishek Mishra · Software Engineer",
+  title: "Abhishek Mishra · Unreal & Unity Developer",
   description:
-    "Abhishek Mishra, software engineer building web and AI products, and real-time 3D. 3+ years shipping production software end to end.",
+    "Abhishek Mishra, real-time 3D and XR developer working in Unreal Engine (C++, Blueprints, multiplayer) and Unity (C#). 3+ years shipping VR, AR and desktop applications.",
   openGraph: {
-    title: "Abhishek Mishra · Software Engineer",
-    description: "Building web and AI products, and real-time 3D.",
+    title: "Abhishek Mishra · Unreal & Unity Developer",
+    description: "Real-time 3D and XR in Unreal Engine and Unity.",
     type: "website",
   },
 };
