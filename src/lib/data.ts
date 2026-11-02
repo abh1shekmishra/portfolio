@@ -66,7 +66,7 @@ export const projects: Project[] = [
     description:
       "A custom UE C++ plugin automating repetitive VR scene setup (batch light building, auto collision/navigation meshes, material switching) to streamline the design-to-deployment pipeline. Cut AR/VR presentation setup time for designers and clients by up to 30%.",
     tech: ["C++", "Unreal Engine 5", "Blueprints"],
-    meta: "Trezi (SmartVizx) internal tool",
+    meta: "Trezi (SmartVizX) internal tool",
   },
   {
     group: "xr",
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     description:
       "A web 360° property viewer with VR integration, deployed across multiple properties, bringing real-time 3D walkthroughs to the browser with no install required.",
     tech: ["Three.js", "WebGL", "WebXR"],
-    meta: "Client work at Trezi (SmartVizx)",
+    meta: "Client work at Trezi (SmartVizX)",
   },
 
   // ── Web & AI ────────────────────────────────────────────────────────
@@ -145,7 +145,7 @@ export const projects: Project[] = [
 
 export const experience = [
   {
-    company: "Trezi (SmartVizx)",
+    company: "Trezi (SmartVizX)",
     role: "Senior Software Engineer",
     period: "Jun 2023 - Present",
     location: "Noida",

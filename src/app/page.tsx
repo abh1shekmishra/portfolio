@@ -73,7 +73,7 @@ export default function Home() {
                   Blueprints, multiplayer) and Unity (C#).
                 </p>
                 <p>
-                  At <span className="font-semibold text-ink">Trezi (SmartVizx)</span> I build immersive tools
+                  At <span className="font-semibold text-ink">Trezi (SmartVizX)</span> I build immersive tools
                   for architecture and design clients. I&apos;ve also delivered freelance Unity work,
                   from a standalone VR tour to an ESP32 sensor system streaming into Unity. On the
                   side I build web and AI products in React, Next.js and TypeScript.
