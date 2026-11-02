@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
-import ScrollFillText from "@/components/ScrollFillText";
-import { GitHubIcon, LinkedInIcon, MailIcon, ArrowIcon, DocIcon } from "@/components/icons";
+import { GitHubIcon, LinkedInIcon, MailIcon, ArrowIcon } from "@/components/icons";
 import { profile, projects, experience, skills, type Project } from "@/lib/data";
 
 const services = [
@@ -49,12 +48,12 @@ export default function Home() {
             <a href="#contact" className="rounded-full px-3 py-1.5 text-sm text-cream/60 transition-colors hover:text-cream">Contact</a>
           </span>
           <a
-            href={profile.resume}
+            href="https://togedah.com"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-1 rounded-full bg-cream px-4 py-1.5 text-sm font-semibold text-ink transition-opacity hover:opacity-85"
           >
-            Résumé
+            Togedah ↗
           </a>
         </nav>
       </header>
@@ -89,14 +88,6 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
-        </section>
-
-        {/* Statement — fills from faint to ink on scroll */}
-        <section className="border-t border-border py-20 sm:py-24">
-          <ScrollFillText
-            text="From idea to launch. Clean, scalable products, built to move fast, stay simple, and hold up in the real world."
-            className="max-w-4xl text-3xl font-semibold leading-[1.25] tracking-tight sm:text-4xl md:text-[2.75rem]"
-          />
         </section>
 
         {/* What I do */}
@@ -225,11 +216,11 @@ export default function Home() {
           <Reveal>
             <Label>Contact</Label>
             <h2 className="max-w-3xl text-5xl font-bold tracking-tight sm:text-7xl">
-              Let&apos;s build something.
+              Say hi.
             </h2>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-cream/60">
-              Open to Unreal Engine, Unity and XR roles, including freelance. If you&apos;re
-              building something ambitious, reach out.
+              I&apos;m building Togedah, a multiplayer AI workspace. Happy to talk about
+              multiplayer AI, Unreal, or real-time 3D.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <a
@@ -237,14 +228,6 @@ export default function Home() {
                 className="inline-flex items-center gap-2 rounded-full bg-cream px-6 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-85"
               >
                 <MailIcon /> Email me
-              </a>
-              <a
-                href={profile.resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-cream/25 px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-cream hover:text-ink"
-              >
-                <DocIcon /> Résumé
               </a>
               <a href={profile.github} target="_blank" rel="noopener noreferrer" className="ml-2 text-cream/60 transition-colors hover:text-cream" aria-label="GitHub">
                 <GitHubIcon />

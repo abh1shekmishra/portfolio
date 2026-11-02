@@ -8,7 +8,6 @@ export const profile = {
   email: "abhshkmishra@gmail.com",
   github: "https://github.com/abh1shekmishra",
   linkedin: "https://linkedin.com/in/abh1shekmishra",
-  resume: "/Abhishek-Mishra-Resume.pdf",
 };
 
 export const stats: { value: string; label: string }[] = [

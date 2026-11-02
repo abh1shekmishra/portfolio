@@ -1,5 +1,5 @@
 import { profile } from "@/lib/data";
-import { ArrowIcon, DocIcon } from "@/components/icons";
+import { ArrowIcon } from "@/components/icons";
 
 /* A flat four-point star: a brutalist mark, not a chrome trinket. */
 function Star({ className = "" }: { className?: string }) {
@@ -52,12 +52,12 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <a
-            href={profile.resume}
+            href="https://togedah.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-cream transition-opacity hover:opacity-85"
           >
-            <DocIcon /> Résumé
+            Togedah <ArrowIcon />
           </a>
           <a
             href="#work"
