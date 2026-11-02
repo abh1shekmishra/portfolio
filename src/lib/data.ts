@@ -158,11 +158,11 @@ export const experience = [
   },
   {
     company: "Amazon",
-    role: "Customer Service Associate → Training Subject Matter Expert",
+    role: "Customer Service Associate → Interim Training Matter Expert (TME)",
     period: "Oct 2019 - May 2023",
     location: "Noida",
     points: [
-      "Promoted from Customer Service Associate to Training Subject Matter Expert.",
+      "Selected as Interim Training Matter Expert for several months.",
       "Recruited, trained, and onboarded new team members, and introduced process improvements that raised team productivity.",
     ],
   },
