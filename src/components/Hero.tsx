@@ -18,7 +18,7 @@ export default function Hero() {
       className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-28 pb-10"
     >
       {/* Decorative marks */}
-      <Star className="floaty pointer-events-none absolute left-[6%] top-[26%] h-10 w-10 text-ink sm:h-14 sm:w-14" />
+      <Star className="floaty pointer-events-none absolute left-[6%] top-[17%] h-10 w-10 sm:top-[26%] text-ink sm:h-14 sm:w-14" />
       <Star className="floaty-slow pointer-events-none absolute right-[7%] top-[44%] h-8 w-8 text-ink sm:h-11 sm:w-11" />
 
       <div className="cascade relative z-10">
@@ -35,6 +35,19 @@ export default function Hero() {
         <p className="mx-auto mt-8 max-w-xl text-balance text-center text-base leading-relaxed text-muted sm:text-lg">
           I build real-time 3D and XR in Unreal Engine and Unity, from C++ and Blueprints to
           standalone VR, plus web and AI products on the side.
+        </p>
+
+        <p className="mx-auto mt-4 max-w-xl text-balance text-center text-sm leading-relaxed text-muted sm:text-base">
+          Now: building{" "}
+          <a
+            href="https://togedah.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-ink underline decoration-ink/25 underline-offset-4 transition-colors hover:decoration-ink"
+          >
+            Togedah
+          </a>{" "}
+          (togedah.com), a multiplayer AI workspace.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">

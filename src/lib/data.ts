@@ -1,6 +1,6 @@
 export const profile = {
   name: "Abhishek Mishra",
-  role: "Unreal & Unity Developer",
+  role: "Founder, Togedah · Unreal & Unity Developer",
   tagline: "I build real-time 3D and XR in Unreal Engine and Unity.",
   pitch:
     "Real-time 3D developer with 3+ years in Unreal Engine (C++, Blueprints, multiplayer) and Unity (C#), shipping VR, AR and desktop applications for enterprise clients. I also build web and AI products in React, Next.js and TypeScript.",
@@ -67,7 +67,7 @@ export const projects: Project[] = [
     description:
       "A custom UE C++ plugin automating repetitive VR scene setup (batch light building, auto collision/navigation meshes, material switching) to streamline the design-to-deployment pipeline. Cut AR/VR presentation setup time for designers and clients by up to 30%.",
     tech: ["C++", "Unreal Engine 5", "Blueprints"],
-    meta: "Trezi internal tool",
+    meta: "Trezi (SmartVizx) internal tool",
   },
   {
     group: "xr",
@@ -94,10 +94,20 @@ export const projects: Project[] = [
     description:
       "A web 360° property viewer with VR integration, deployed across multiple properties, bringing real-time 3D walkthroughs to the browser with no install required.",
     tech: ["Three.js", "WebGL", "WebXR"],
-    meta: "Client work at Trezi",
+    meta: "Client work at Trezi (SmartVizx)",
   },
 
   // ── Web & AI ────────────────────────────────────────────────────────
+  {
+    group: "web",
+    title: "Togedah",
+    tagline: "Multiplayer AI workspace",
+    description:
+      "A multiplayer AI workspace: several people work in one chat with one AI agent, with live steering, hand-off, shared projects, review and approvals. Built solo, from first commit to a live beta in 11 days.",
+    tech: ["TypeScript", "Node", "Hono", "React", "SQLite", "Claude API"],
+    live: "https://togedah.com",
+    featured: true,
+  },
   {
     group: "web",
     title: "LeadScraper",
@@ -136,7 +146,7 @@ export const projects: Project[] = [
 
 export const experience = [
   {
-    company: "Trezi (SmartVizX)",
+    company: "Trezi (SmartVizx)",
     role: "Senior Software Engineer",
     period: "Jun 2023 - Present",
     location: "Noida",

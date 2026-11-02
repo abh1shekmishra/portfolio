@@ -74,7 +74,7 @@ export default function Home() {
                   Blueprints, multiplayer) and Unity (C#).
                 </p>
                 <p>
-                  At <span className="font-semibold text-ink">Trezi</span> I build immersive tools
+                  At <span className="font-semibold text-ink">Trezi (SmartVizx)</span> I build immersive tools
                   for architecture and design clients. I&apos;ve also delivered freelance Unity work,
                   from a standalone VR tour to an ESP32 sensor system streaming into Unity. On the
                   side I build web and AI products in React, Next.js and TypeScript.
@@ -146,7 +146,11 @@ export default function Home() {
 
           <div className="grid gap-6 sm:grid-cols-2">
             {featured.map((p, i) => (
-              <Reveal key={p.title} delay={i * 90} className="h-full">
+              <Reveal
+                key={p.title}
+                delay={i * 90}
+                className={i === 0 && featured.length % 2 === 1 ? "h-full sm:col-span-2" : "h-full"}
+              >
                 <FeaturedCard p={p} />
               </Reveal>
             ))}
@@ -299,7 +303,7 @@ function FeaturedCard({ p }: { p: Project }) {
         <p className="mt-1 text-sm font-medium text-faint">{p.tagline}</p>
         <p className="mt-4 flex-1 leading-relaxed text-muted">{p.description}</p>
         <div className="mt-5 flex flex-wrap gap-2">
-          {p.tech.slice(0, 5).map((t) => (
+          {p.tech.slice(0, 6).map((t) => (
             <Tag key={t}>{t}</Tag>
           ))}
         </div>

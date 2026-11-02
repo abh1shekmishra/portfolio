@@ -11,12 +11,12 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "Abhishek Mishra · Unreal & Unity Developer",
+  title: "Abhishek Mishra · Founder, Togedah · Unreal & Unity Developer",
   description:
-    "Abhishek Mishra, real-time 3D and XR developer working in Unreal Engine (C++, Blueprints, multiplayer) and Unity (C#). 3+ years shipping VR, AR and desktop applications.",
+    "Abhishek Mishra, founder of Togedah, a multiplayer AI workspace, and real-time 3D and XR developer working in Unreal Engine (C++, Blueprints, multiplayer) and Unity (C#). 3+ years shipping VR, AR and desktop applications.",
   openGraph: {
-    title: "Abhishek Mishra · Unreal & Unity Developer",
-    description: "Real-time 3D and XR in Unreal Engine and Unity.",
+    title: "Abhishek Mishra · Founder, Togedah · Unreal & Unity Developer",
+    description: "Founder of Togedah. Real-time 3D and XR in Unreal Engine and Unity.",
     type: "website",
   },
 };
